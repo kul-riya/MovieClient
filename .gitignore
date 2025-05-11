@@ -2,8 +2,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+frontend/node_modules
+frontend/.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -12,14 +12,14 @@
 !.yarn/versions
 
 # testing
-/coverage
+frontend/coverage
 
 # next.js
-/.next/
-/out/
+frontend/.next/
+frontend/out/
 
 # production
-/build
+frontend/build
 
 # misc
 .DS_Store
@@ -65,11 +65,11 @@ target/
 *.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+backend/nbproject/private/
+backend/nbbuild/
+backend/dist/
+backend/nbdist/
+backend/.nb-gradle/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
