@@ -28,7 +28,7 @@ public class ReviewController {
     public ResponseEntity<Review> postNewReview(@RequestBody Map<String, String> payload) {
 
         try {
-            return new ResponseEntity<>(service.createReview(payload.get("comment"), Long.valueOf(payload.get("movie_id"))), HttpStatus.CREATED);
+            return new ResponseEntity<>(service.createReview(payload.get("comment"), Long.valueOf(payload.get("movieId"))), HttpStatus.CREATED);
         } catch (NumberFormatException e) {
             System.out.println("Invalid movie id");
             return new ResponseEntity<>(new Review(), HttpStatus.BAD_REQUEST);

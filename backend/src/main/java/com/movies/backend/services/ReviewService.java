@@ -8,19 +8,18 @@ import org.springframework.stereotype.Service;
 import com.movies.backend.entities.Movie;
 import com.movies.backend.entities.Review;
 import com.movies.backend.repositories.MovieRepository;
-import com.movies.backend.repositories.ReviewRepository;
 
 @Service
 public class ReviewService {
 
-    @Autowired
-    private final ReviewRepository reviewRepository;
+    // @Autowired
+    // private final ReviewRepository reviewRepository;
     @Autowired
     private final MovieRepository movieRepository;
 
-    public ReviewService(MovieRepository movieRepository, ReviewRepository reviewRepository) {
+    public ReviewService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
-        this.reviewRepository = reviewRepository;
+        // this.reviewRepository = reviewRepository;
     }
 
     public Review createReview(String comment, Long movie_id) {

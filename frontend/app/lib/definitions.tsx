@@ -2,6 +2,7 @@
 
 export type Review = {
   id?: number;
+  movieId: number;
   created?: string;
   updated?: string;
   comment: string;
