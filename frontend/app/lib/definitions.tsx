@@ -11,6 +11,7 @@ export type Review = {
 export type Movie = {
   id?: number;
   name: string;
+  posterUrl: string;
   releaseDate: string;
   revenue: number;
   imdbRating: number;

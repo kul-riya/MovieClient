@@ -42,8 +42,13 @@ public class Movie {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
 
+    @Column(name = "revenue")
     private Long revenue;
+
+    @Column(name = "imdb_rating")
     private Double imdbRating;
+    @Column(name = "poster_url")
+    private String posterUrl;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie_id", referencedColumnName = "id")

@@ -2,6 +2,9 @@ package com.movies.backend.entities;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,8 +34,15 @@ public class Review {
     private Long movieId;
     private String comment;
 
+    @CreationTimestamp
     private LocalDateTime created;
+    @UpdateTimestamp
     private LocalDateTime updated;
+
+    public Review(Long movieId, String comment) {
+        this.movieId = movieId;
+        this.comment = comment;
+    }
 
     public Review(Long movieId, String comment, LocalDateTime created, LocalDateTime updated) {
         this.movieId = movieId;

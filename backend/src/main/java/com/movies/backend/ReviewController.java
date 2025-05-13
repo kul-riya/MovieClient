@@ -1,7 +1,5 @@
 package com.movies.backend;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +23,13 @@ public class ReviewController {
     }
 
     @PostMapping()
-    public ResponseEntity<Review> postNewReview(@RequestBody Map<String, String> payload) {
+    public ResponseEntity<Review> postNewReview(@RequestBody Review review) {
 
         try {
-            return new ResponseEntity<>(service.createReview(payload.get("comment"), Long.valueOf(payload.get("movieId"))), HttpStatus.CREATED);
+            return new ResponseEntity<>(service.createReview(review), HttpStatus.CREATED);
         } catch (NumberFormatException e) {
             System.out.println("Invalid movie id");
-            return new ResponseEntity<>(new Review(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 

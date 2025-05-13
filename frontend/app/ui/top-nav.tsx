@@ -19,7 +19,7 @@ const TopNav = () => {
               {links.map((link) => {
                 return (
                   <Link href={link.href} key={link.href}>
-                    <p className="text-stone-300 text-lg px-3 relative h-full hover:border-stone-300 hover:border-y transition-all duration-200">
+                    <p className="text-stone-300 text-lg px-3 relative h-full hover:border-stone-300 hover:border-y hover:text-2xl transition-all duration-200">
                       {link.name}
                     </p>
                   </Link>

@@ -1,6 +1,6 @@
 package com.movies.backend.services;
 
-import java.time.LocalDateTime;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.movies.backend.entities.Movie;
 import com.movies.backend.entities.Review;
 import com.movies.backend.repositories.MovieRepository;
+import com.movies.backend.repositories.ReviewRepository;
 
 @Service
 public class ReviewService {
@@ -16,20 +17,24 @@ public class ReviewService {
     // private final ReviewRepository reviewRepository;
     @Autowired
     private final MovieRepository movieRepository;
+    private final ReviewRepository reviewRepository;
 
-    public ReviewService(MovieRepository movieRepository) {
+    public ReviewService(MovieRepository movieRepository, ReviewRepository reviewRepository) {
         this.movieRepository = movieRepository;
-        // this.reviewRepository = reviewRepository;
+        this.reviewRepository = reviewRepository;
     }
 
-    public Review createReview(String comment, Long movie_id) {
-        Movie movie = movieRepository.findById(movie_id).orElseThrow(() -> new IllegalArgumentException("Movie not found with ID: " + movie_id));
-        Review newReview = new Review(movie_id, comment, LocalDateTime.now(), LocalDateTime.now());
+    public Optional<Review> getLatestReviewByComment(String comment) {
+        return reviewRepository.findFirstByCommentOrderByCreatedDesc(comment);
+    }
 
-        movie.getReviews().add(newReview);
+    public Review createReview(Review review) {
+        Movie movie = movieRepository.findById(review.getMovieId()).orElseThrow(() -> new IllegalArgumentException("Movie not found with ID: " + review.getMovieId()));
+
+        movie.getReviews().add(review);
         movieRepository.save(movie);
-
-        return newReview;
+        Review savedReview = reviewRepository.save(review);
+        return savedReview;
 
     }
 

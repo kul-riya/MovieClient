@@ -40,9 +40,9 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
     
-    const { name, releaseDate, imdbRating, revenue } = await request.json();
+    const { name, releaseDate, imdbRating, revenue, posterUrl } = await request.json();
 
-    const newMovie = { name, releaseDate, imdbRating, revenue };
+    const newMovie = { name, releaseDate, imdbRating, revenue, posterUrl };
     console.log(JSON.stringify(newMovie));
     
 

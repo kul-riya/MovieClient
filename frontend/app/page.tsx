@@ -35,6 +35,7 @@ const PosterSlideshow = () => {
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-50"></div>
+            {/* TODO Use Image tag here for efficiency and modify transition*/}
             <img
               src={url}
               alt={""}
@@ -71,8 +72,8 @@ export default function Home() {
           <PosterSlideshow />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <div className="flex gap-[24px] flex-wrap items-center justify-center mb-8">
+      <footer className="row-start-3 flex gap-[24px] flex-wrap justify-center">
+        <div className="flex gap-[24px] flex-wrap  justify-center mb-8">
           <Link
             href="/about"
             className="text-gray-400 hover:text-white transition-colors">
@@ -103,6 +104,7 @@ export default function Home() {
           <p>© {new Date().getFullYear()} All rights reserved.</p>
         </div>
       </footer>
+      {/* TODO: bounce scroll here */}
     </div>
   );
 }

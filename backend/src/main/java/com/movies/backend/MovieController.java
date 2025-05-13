@@ -38,8 +38,8 @@ public class MovieController {
     }
 
     @PostMapping
-    public void postNewMovie(@RequestBody Movie movie) {
-        movieService.addMovie(movie);
+    public ResponseEntity<Movie> postNewMovie(@RequestBody Movie movie) {
+        return new ResponseEntity<>(movieService.addMovie(movie), HttpStatus.CREATED);
     }
 
 }
