@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Movie } from "../lib/definitions";
 import MovieCard from "../ui/movie-card";
@@ -22,18 +24,24 @@ export default function Page() {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {movies?.map((movie) => {
-          return (
-            <MovieCard
-              name={movie.name}
-              posterUrl={movie.posterUrl}
-              releaseDate={movie.releaseDate}
-              revenue={movie.revenue}
-              imdbRating={movie.imdbRating}
-            />
-          );
-        })}
+      <div className="bg-black pt-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 px-20 lg:px-0 lg:grid-cols-4 gap-10 md:gap-18">
+            {movies?.map((movie, index) => {
+              return (
+                <MovieCard
+                  key={index}
+                  id={movie.id}
+                  name={movie.name}
+                  posterUrl={movie.posterUrl}
+                  releaseDate={movie.releaseDate}
+                  revenue={movie.revenue}
+                  imdbRating={movie.imdbRating}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );

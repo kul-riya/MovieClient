@@ -1,49 +1,37 @@
-import postgres from 'postgres';
-import { movies, reviews } from '@/app/lib/placeholder-data'
+// import { movies, reviews } from '@/app/lib/placeholder-data'
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+// async function seedReviews() {
 
-async function seedReviews() {
-
-  const insertedReviews = await Promise.all(
-      reviews.map(async (review) => {
-        return sql
-          `INSERT INTO movie (movie_id, comment)
-          VALUES (${review.movieId}, ${review.comment})
-          ON CONFLICT (id) DO NOTHING;
-        `;
-      }),
-    );
+//       reviews.map(async (review) => {
+//         await client.query(
+//           `INSERT INTO movie (movie_id, comment)
+//           VALUES (${review.movieId}, ${review.comment})
+//           ON CONFLICT (id) DO NOTHING;
+//         `);
+//       });
   
-    return insertedReviews;
   
-}
+// }
 
-async function seedMovies() {
+// async function seedMovies() {
 
-    const insertedMovies = await Promise.all(
-        movies.map(async (movie) => {
-          return sql
-            `INSERT INTO movie (name, poster_url, release_date, revenue, imdb_rating)
-            VALUES (${movie.name}, ${movie.posterUrl}, ${movie.releaseDate}, ${movie.revenue} ,${movie.imdbRating})
-            ON CONFLICT (id) DO NOTHING;
-          `;
-        }),
-      );
+//     movies.map(async (movie) => {
+//           await client.query(`INSERT INTO movie (name, poster_url, release_date, revenue, imdb_rating)
+//             VALUES (${movie.name}, ${movie.posterUrl}, ${movie.releaseDate}, ${movie.revenue} ,${movie.imdbRating})
+//             ON CONFLICT (id) DO NOTHING;
+//           `);
+//         });
     
-      return insertedMovies;
     
-}
+// }
 
-export async function GET() {
-    try {
-      const result = await sql.begin((sql) => [
-        seedMovies(),
-        seedReviews()
-      ]);
+// export async function GET() {
+//     try {
+//         seedMovies(),
+//         seedReviews()
   
-      return Response.json({ message: 'Database seeded successfully' });
-    } catch (error) {
-      return Response.json({ error }, { status: 500 });
-    }
-  }
+//       return Response.json({ message: 'Database seeded successfully' });
+//     } catch (error) {
+//       return Response.json({ error }, { status: 500 });
+//     }
+//   }

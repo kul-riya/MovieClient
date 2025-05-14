@@ -7,7 +7,7 @@ export async function GET(
     const id = (await params).id;
 
     try {
-        const response = await fetch(`https://localhost:8080/api/movies/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/movies/${id}`, {
             method: 'GET',
             headers: { 'Content-type': 'application/json'}
         })

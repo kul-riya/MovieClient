@@ -1,5 +1,8 @@
+"use client";
 import Logo from "./logo";
 import Link from "next/link";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 const links = [
   { name: "Home", href: "/" },
@@ -7,6 +10,7 @@ const links = [
 ];
 
 const TopNav = () => {
+  const pathname = usePathname();
   return (
     <div className="bg-blue-950 border-b-blue-800">
       <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
@@ -15,11 +19,18 @@ const TopNav = () => {
             <div className="mx-2 md:mx-10">
               <Logo />
             </div>
-            <div className="hidden md:flex gap-3.5">
+            <div className="hidden md:flex gap-4 md:gap-7">
               {links.map((link) => {
                 return (
                   <Link href={link.href} key={link.href}>
-                    <p className="text-stone-300 text-lg px-3 relative h-full hover:border-stone-300 hover:border-y hover:text-2xl transition-all duration-200">
+                    <p
+                      className={clsx(
+                        "text-stone-300 text-lg px-3 relative h-full hover:border-stone-300 hover:border-y transition-all duration-200",
+                        {
+                          "border-stone-300 border-y md:text-2xl":
+                            link.href == pathname,
+                        }
+                      )}>
                       {link.name}
                     </p>
                   </Link>
