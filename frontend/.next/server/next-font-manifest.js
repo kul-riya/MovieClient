@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\n  \"app\": {},\n  \"appUsingSizeAdjust\": false,\n  \"pages\": {},\n  \"pagesUsingSizeAdjust\": false\n}"
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/kul-riya/Developer/spring/MovieClient/frontend/app/layout":["static/media/415f6059eaa8a4bb-s.p.woff2","static/media/5611c55482296524-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
