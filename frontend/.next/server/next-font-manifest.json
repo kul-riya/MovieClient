@@ -1,1 +1,19 @@
-{"pages":{},"app":{"/home/kul-riya/Developer/spring/MovieClient/frontend/app/layout":["static/media/415f6059eaa8a4bb-s.p.woff2","static/media/5611c55482296524-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}
+{
+  "app": {
+    "[project]/app/_not-found/page": [
+      "static/media/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fAZ9hiJ_Ek__EeA-s.p.9cb42e09.woff2",
+      "static/media/cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBAbNJYQ5ayZC-s.p.9e904d0a.woff2"
+    ],
+    "[project]/app/browse/page": [
+      "static/media/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fAZ9hiJ_Ek__EeA-s.p.9cb42e09.woff2",
+      "static/media/cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBAbNJYQ5ayZC-s.p.9e904d0a.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fAZ9hiJ_Ek__EeA-s.p.9cb42e09.woff2",
+      "static/media/cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBAbNJYQ5ayZC-s.p.9e904d0a.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
